@@ -1,0 +1,142 @@
+[gd_scene load_steps=7 format=3 uid="uid://b4wqwb0wq8v5a"]
+
+[ext_resource type="Texture2D" uid="uid://v3qbra7u6ts1" path="res://asserts/ui/bag-empty.png" id="1_ds67d"]
+[ext_resource type="Script" path="res://UI/inventory_bar/inventory.gd" id="1_mmjll"]
+[ext_resource type="Theme" uid="uid://c6kofwqx8wa7h" path="res://UI/theme2.tres" id="2_i1f37"]
+[ext_resource type="Texture2D" uid="uid://bs26x78jdcnop" path="res://asserts/ui/wood-icon.png" id="4_0lw8j"]
+[ext_resource type="Texture2D" uid="uid://b36nwbctxkok5" path="res://asserts/ui/stone.png" id="5_e30en"]
+[ext_resource type="FontFile" uid="uid://b37n7srhw4vak" path="res://UI/monogram-extended.ttf" id="5_iqqke"]
+
+[node name="inventory" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mmjll")
+
+[node name="1" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 48.0
+offset_top = -40.0
+offset_right = 88.0
+grow_horizontal = 2
+grow_vertical = 0
+tooltip_text = "Bag"
+theme = ExtResource("2_i1f37")
+texture = ExtResource("1_ds67d")
+
+[node name="2" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 664.0
+offset_top = 608.0
+offset_right = 704.0
+offset_bottom = 648.0
+tooltip_text = "This is Bag"
+theme = ExtResource("2_i1f37")
+texture = ExtResource("1_ds67d")
+
+[node name="3" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 704.0
+offset_top = 608.0
+offset_right = 744.0
+offset_bottom = 648.0
+tooltip_text = "This is also a BAG"
+theme = ExtResource("2_i1f37")
+texture = ExtResource("1_ds67d")
+
+[node name="4" type="TextureRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 744.0
+offset_top = 608.0
+offset_right = 784.0
+offset_bottom = 648.0
+tooltip_text = "Newly Added BAG"
+theme = ExtResource("2_i1f37")
+texture = ExtResource("1_ds67d")
+
+[node name="5" type="TextureRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 208.0
+offset_top = -40.0
+offset_right = 248.0
+grow_horizontal = 2
+grow_vertical = 0
+tooltip_text = "Second Newly Added BAG"
+theme = ExtResource("2_i1f37")
+texture = ExtResource("1_ds67d")
+
+[node name="6" type="TextureRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 248.0
+offset_top = -40.0
+offset_right = 288.0
+grow_horizontal = 2
+grow_vertical = 0
+tooltip_text = "FINAL BAG"
+theme = ExtResource("2_i1f37")
+texture = ExtResource("1_ds67d")
+
+[node name="wood" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 896.0
+offset_top = 607.0
+offset_right = 936.0
+offset_bottom = 647.0
+tooltip_text = "Wood"
+theme = ExtResource("2_i1f37")
+texture = ExtResource("4_0lw8j")
+
+[node name="Label" type="Label" parent="wood"]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 9.0
+offset_right = 88.0
+offset_bottom = 33.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_iqqke")
+theme_override_font_sizes/font_size = 30
+text = "0"
+horizontal_alignment = 1
+
+[node name="stone" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 988.0
+offset_top = 607.0
+offset_right = 1028.0
+offset_bottom = 647.0
+tooltip_text = "Stone"
+theme = ExtResource("2_i1f37")
+texture = ExtResource("5_e30en")
+
+[node name="Label" type="Label" parent="stone"]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 9.0
+offset_right = 88.0
+offset_bottom = 33.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_iqqke")
+theme_override_font_sizes/font_size = 30
+text = "0"
+horizontal_alignment = 1

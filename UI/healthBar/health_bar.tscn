@@ -1,0 +1,71 @@
+[gd_scene load_steps=4 format=3 uid="uid://dv0lms8nd6ugq"]
+
+[ext_resource type="Script" path="res://UI/healthBar/health_bar.gd" id="1_bf7is"]
+[ext_resource type="Theme" uid="uid://c6kofwqx8wa7h" path="res://UI/theme2.tres" id="2_cw5sj"]
+[ext_resource type="Texture2D" uid="uid://devs7b7k2ryj7" path="res://asserts/ui/food-empty.png" id="2_r3i0t"]
+
+[node name="health_bar" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bf7is")
+metadata/_edit_use_anchors_ = true
+
+[node name="1" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -199.0
+offset_top = -40.0
+offset_right = -160.0
+grow_horizontal = 2
+grow_vertical = 0
+tooltip_text = "Food"
+theme = ExtResource("2_cw5sj")
+texture = ExtResource("2_r3i0t")
+
+[node name="2" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 416.0
+offset_top = 608.0
+offset_right = 456.0
+offset_bottom = 648.0
+tooltip_text = "Foood"
+theme = ExtResource("2_cw5sj")
+texture = ExtResource("2_r3i0t")
+
+[node name="3" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 456.0
+offset_top = 608.0
+offset_right = 496.0
+offset_bottom = 648.0
+tooltip_text = "Fooood"
+theme = ExtResource("2_cw5sj")
+texture = ExtResource("2_r3i0t")
+
+[node name="4" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 496.0
+offset_top = 608.0
+offset_right = 536.0
+offset_bottom = 648.0
+tooltip_text = "Foooood"
+theme = ExtResource("2_cw5sj")
+texture = ExtResource("2_r3i0t")
+
+[node name="5" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 536.0
+offset_top = 608.0
+offset_right = 576.0
+offset_bottom = 648.0
+tooltip_text = "FOOOOOOD"
+theme = ExtResource("2_cw5sj")
+texture = ExtResource("2_r3i0t")

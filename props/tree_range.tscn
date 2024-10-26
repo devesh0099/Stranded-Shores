@@ -1,0 +1,37 @@
+[gd_scene load_steps=2 format=3 uid="uid://rmit6t60om58"]
+
+[ext_resource type="PackedScene" uid="uid://btnt0qq2vliar" path="res://props/tree.tscn" id="1_sprpb"]
+
+[node name="tree_range" type="Node2D"]
+
+[node name="tree6" parent="." instance=ExtResource("1_sprpb")]
+position = Vector2(0, -8)
+
+[node name="tree5" parent="." instance=ExtResource("1_sprpb")]
+position = Vector2(-8, -8)
+
+[node name="tree4" parent="." instance=ExtResource("1_sprpb")]
+position = Vector2(-8, 0)
+
+[node name="tree10" parent="." instance=ExtResource("1_sprpb")]
+position = Vector2(8, -8)
+
+[node name="tree9" parent="." instance=ExtResource("1_sprpb")]
+position = Vector2(-8, -24)
+
+[node name="tree8" parent="." instance=ExtResource("1_sprpb")]
+position = Vector2(0, -16)
+
+[node name="tree3" parent="." instance=ExtResource("1_sprpb")]
+
+[node name="tree2" parent="." instance=ExtResource("1_sprpb")]
+position = Vector2(16, -8)
+
+[node name="tree" parent="." instance=ExtResource("1_sprpb")]
+position = Vector2(-8, -16)
+
+[node name="tree11" parent="." instance=ExtResource("1_sprpb")]
+position = Vector2(8, -16)
+
+[node name="tree7" parent="." instance=ExtResource("1_sprpb")]
+position = Vector2(-8, 8)

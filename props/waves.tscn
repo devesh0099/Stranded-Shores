@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://b83kygwe0611e"]
+
+[ext_resource type="Texture2D" uid="uid://cj1vx6o7sbyop" path="res://asserts/ui/waves.png" id="1_sajmt"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aokvm"]
+atlas = ExtResource("1_sajmt")
+region = Rect2(0, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mtocq"]
+atlas = ExtResource("1_sajmt")
+region = Rect2(8, 0, 8, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_38ob5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aokvm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mtocq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="waves" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_38ob5")
+autoplay = "default"
+frame_progress = 0.709434

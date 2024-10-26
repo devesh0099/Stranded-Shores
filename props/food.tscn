@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://crm63we1dxdhs"]
+
+[ext_resource type="Texture2D" uid="uid://da4hs3nboiu3d" path="res://asserts/tileset/tileset.png" id="1_pggmp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t8l25"]
+size = Vector2(7.8, 7.8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lvk1t"]
+atlas = ExtResource("1_pggmp")
+region = Rect2(264, 16, 8, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cpbpw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lvk1t")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="food" type="StaticBody2D" groups=["food", "prop"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_t8l25")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_cpbpw")

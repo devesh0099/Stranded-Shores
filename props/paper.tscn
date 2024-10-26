@@ -1,0 +1,79 @@
+[gd_scene load_steps=10 format=3 uid="uid://bbbfeanolgj0x"]
+
+[ext_resource type="Texture2D" uid="uid://b2ygqmd8ssfii" path="res://asserts/ui/paper-Sheet.png" id="1_4tar1"]
+[ext_resource type="Script" path="res://props/paper.gd" id="1_w4ifm"]
+[ext_resource type="AudioStream" uid="uid://c14j6m37vgibh" path="res://asserts/sfx/paper_collect.wav" id="3_5kdo6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vff8o"]
+radius = 0.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pemlg"]
+atlas = ExtResource("1_4tar1")
+region = Rect2(0, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v4ojl"]
+atlas = ExtResource("1_4tar1")
+region = Rect2(8, 0, 8, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ltorv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pemlg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v4ojl")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uo82j"]
+radius = 4.12311
+
+[sub_resource type="Curve" id="Curve_pkbtn"]
+min_value = -200.0
+max_value = 200.0
+_data = [Vector2(0.00549451, 90.1099), 0.0, 11200.0, 0, 0, Vector2(0.104396, 10.989), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="paper" type="StaticBody2D"]
+script = ExtResource("1_w4ifm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_vff8o")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ltorv")
+autoplay = "default"
+frame = 1
+frame_progress = 0.200012
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_uo82j")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 20
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector2(0, 0)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_max = 5.0
+angular_velocity_min = 10.0
+angular_velocity_max = 10.0
+linear_accel_min = 10.0
+linear_accel_max = 15.0
+linear_accel_curve = SubResource("Curve_pkbtn")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_5kdo6")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

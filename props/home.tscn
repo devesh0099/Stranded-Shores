@@ -1,0 +1,87 @@
+[gd_scene load_steps=11 format=3 uid="uid://dcqx1gakjq5i8"]
+
+[ext_resource type="Script" path="res://props/home.gd" id="1_3hn6f"]
+[ext_resource type="Texture2D" uid="uid://da4hs3nboiu3d" path="res://asserts/tileset/tileset.png" id="1_p1ayn"]
+[ext_resource type="FontFile" uid="uid://b37n7srhw4vak" path="res://UI/monogram-extended.ttf" id="3_cfdds"]
+[ext_resource type="AudioStream" uid="uid://bf7whr8nrx6os" path="res://asserts/sfx/hammer.wav" id="4_6l5fi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e3fa2"]
+size = Vector2(8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u5pik"]
+atlas = ExtResource("1_p1ayn")
+region = Rect2(280, 56, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j7ocy"]
+atlas = ExtResource("1_p1ayn")
+region = Rect2(264, 48, 8, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mq3k2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u5pik")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j7ocy")
+}],
+"loop": true,
+"name": &"ruin",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_64sne"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ka6x4"]
+bg_color = Color(0.878431, 0.972549, 0.811765, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+anti_aliasing = false
+
+[node name="home" type="StaticBody2D" groups=["home", "prop"]]
+script = ExtResource("1_3hn6f")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_e3fa2")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_mq3k2")
+animation = &"ruin"
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_64sne")
+
+[node name="Panel" type="Panel" parent="."]
+visible = false
+offset_top = -24.0
+offset_right = 51.0
+offset_bottom = -6.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ka6x4")
+
+[node name="Label" type="Label" parent="Panel"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 90.0
+offset_bottom = 26.0
+theme_override_colors/font_color = Color(0.188235, 0.407843, 0.313726, 1)
+theme_override_fonts/font = ExtResource("3_cfdds")
+theme_override_font_sizes/font_size = 16
+text = "Wood: 12"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_6l5fi")
+pitch_scale = 2.0
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=3 uid="uid://jgh86sdhqol6"]
+
+[ext_resource type="Script" path="res://player/ship.gd" id="1_lpo65"]
+[ext_resource type="Texture2D" uid="uid://0fal1likk2qx" path="res://asserts/player/ship.png" id="2_pnhc2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g43pt"]
+atlas = ExtResource("2_pnhc2")
+region = Rect2(8, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_guxs1"]
+atlas = ExtResource("2_pnhc2")
+region = Rect2(0, 0, 8, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lbeko"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g43pt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_guxs1")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fcuwp"]
+radius = 11.0454
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_lpo65")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(3.25, 3.25)
+sprite_frames = SubResource("SpriteFrames_lbeko")
+animation = &"walk"
+frame = 1
+frame_progress = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 4)
+shape = SubResource("CircleShape2D_fcuwp")

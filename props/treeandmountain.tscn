@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://cot1v6tfkpnwd"]
+
+[ext_resource type="PackedScene" uid="uid://btnt0qq2vliar" path="res://props/tree.tscn" id="1_vs7vt"]
+[ext_resource type="PackedScene" uid="uid://6h8ycpljreqi" path="res://props/mountain.tscn" id="2_exdql"]
+
+[node name="treeandmountain" type="Node2D"]
+
+[node name="tree5" parent="." instance=ExtResource("1_vs7vt")]
+position = Vector2(8, 0)
+
+[node name="tree4" parent="." instance=ExtResource("1_vs7vt")]
+position = Vector2(0, -8)
+
+[node name="tree3" parent="." instance=ExtResource("1_vs7vt")]
+position = Vector2(-8, 8)
+
+[node name="tree2" parent="." instance=ExtResource("1_vs7vt")]
+position = Vector2(-8, 0)
+
+[node name="tree" parent="." instance=ExtResource("1_vs7vt")]
+
+[node name="mountain4" parent="." instance=ExtResource("2_exdql")]
+position = Vector2(8, -8)
+
+[node name="mountain3" parent="." instance=ExtResource("2_exdql")]
+position = Vector2(0, 16)
+
+[node name="mountain2" parent="." instance=ExtResource("2_exdql")]
+position = Vector2(8, 8)
+
+[node name="mountain" parent="." instance=ExtResource("2_exdql")]
+position = Vector2(0, 8)

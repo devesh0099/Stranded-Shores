@@ -1,0 +1,53 @@
+[gd_scene load_steps=8 format=3 uid="uid://chi2jgklobxql"]
+
+[ext_resource type="Script" path="res://props/sinking_sand.gd" id="1_1h0xo"]
+[ext_resource type="Texture2D" uid="uid://da4hs3nboiu3d" path="res://asserts/tileset/tileset.png" id="1_45diu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hwq07"]
+atlas = ExtResource("1_45diu")
+region = Rect2(200, 40, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wwany"]
+atlas = ExtResource("1_45diu")
+region = Rect2(224, 40, 8, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8xbff"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hwq07")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wwany")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5a2sm"]
+radius = 0.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ymgvf"]
+radius = 4.0
+
+[node name="sinking sand" type="StaticBody2D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_1h0xo")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_8xbff")
+autoplay = "default"
+frame_progress = 0.903899
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_5a2sm")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_ymgvf")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

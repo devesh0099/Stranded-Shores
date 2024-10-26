@@ -1,0 +1,482 @@
+[gd_scene load_steps=16 format=3 uid="uid://crvqr2o3bcq11"]
+
+[ext_resource type="Theme" uid="uid://c6kofwqx8wa7h" path="res://UI/theme2.tres" id="1_kqm5q"]
+[ext_resource type="Script" path="res://UI/techtree/tech_tree.gd" id="1_tpikc"]
+[ext_resource type="FontFile" uid="uid://b37n7srhw4vak" path="res://UI/monogram-extended.ttf" id="2_3k0ih"]
+[ext_resource type="Texture2D" uid="uid://bs26x78jdcnop" path="res://asserts/ui/wood-icon.png" id="2_tp8rg"]
+[ext_resource type="Texture2D" uid="uid://b36nwbctxkok5" path="res://asserts/ui/stone.png" id="3_mstia"]
+[ext_resource type="Texture2D" uid="uid://bbvtvfhq8l5ix" path="res://asserts/ui/boot.png" id="5_gvqqd"]
+[ext_resource type="Texture2D" uid="uid://cstlbab45srgi" path="res://asserts/ui/arrow_up.png" id="6_psi1b"]
+[ext_resource type="Texture2D" uid="uid://5hyi808xxe2t" path="res://asserts/ui/point.png" id="7_ul8wm"]
+[ext_resource type="Texture2D" uid="uid://cyvafqbiocqqj" path="res://asserts/ui/food.png" id="8_rclan"]
+[ext_resource type="Texture2D" uid="uid://c8gggq1pvw2eh" path="res://asserts/ui/bag_full.png" id="9_w3ilc"]
+[ext_resource type="Texture2D" uid="uid://ctuddx5hsle3o" path="res://asserts/ui/Raft_Platform.png" id="10_7tgpy"]
+[ext_resource type="Texture2D" uid="uid://dnyhsl0vq7i2w" path="res://asserts/ui/sail.png" id="11_6ldvw"]
+[ext_resource type="Texture2D" uid="uid://c1ppfh6q25ec5" path="res://asserts/ui/shovel.png" id="12_n8ml3"]
+[ext_resource type="Texture2D" uid="uid://7mu45yaf0w4w" path="res://asserts/ui/not_done.png" id="12_yvr8f"]
+[ext_resource type="AudioStream" uid="uid://dryjj3m4526f8" path="res://asserts/sfx/powerup.wav" id="15_eot35"]
+
+[node name="TechTree" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_tpikc")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.878431, 0.972549, 0.811765, 1)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.425781
+anchor_right = 0.574219
+anchor_bottom = 0.0632716
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.188235, 0.407843, 0.313726, 1)
+theme_override_fonts/font = ExtResource("2_3k0ih")
+theme_override_font_sizes/font_size = 50
+text = "Advancements
+"
+metadata/_edit_use_anchors_ = true
+
+[node name="wood" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 19.0
+offset_right = 96.0
+offset_bottom = 59.0
+texture = ExtResource("2_tp8rg")
+
+[node name="Label" type="Label" parent="wood"]
+layout_mode = 0
+offset_left = 49.0
+offset_top = 9.0
+offset_right = 89.0
+offset_bottom = 32.0
+theme_override_colors/font_color = Color(0.188235, 0.407843, 0.313726, 1)
+theme_override_fonts/font = ExtResource("2_3k0ih")
+theme_override_font_sizes/font_size = 30
+
+[node name="stone" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 66.0
+offset_right = 96.0
+offset_bottom = 106.0
+texture = ExtResource("3_mstia")
+
+[node name="Label" type="Label" parent="stone"]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 11.0
+offset_right = 90.0
+offset_bottom = 34.0
+theme_override_colors/font_color = Color(0.188235, 0.407843, 0.313726, 1)
+theme_override_fonts/font = ExtResource("2_3k0ih")
+theme_override_font_sizes/font_size = 30
+
+[node name="powerups" type="Label" parent="."]
+layout_mode = 0
+offset_left = 59.0
+offset_top = 118.0
+offset_right = 230.0
+offset_bottom = 159.0
+theme_override_colors/font_color = Color(0.188235, 0.407843, 0.313726, 1)
+theme_override_fonts/font = ExtResource("2_3k0ih")
+theme_override_font_sizes/font_size = 50
+text = "Power Up"
+
+[node name="boot" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 60.0
+offset_top = 186.0
+offset_right = 112.0
+offset_bottom = 240.0
+mouse_filter = 2
+texture = ExtResource("5_gvqqd")
+
+[node name="Label" type="Label" parent="boot"]
+layout_mode = 0
+offset_left = 64.0
+offset_right = 218.0
+offset_bottom = 24.0
+theme_override_colors/font_color = Color(0.188235, 0.407843, 0.313726, 1)
+theme_override_fonts/font = ExtResource("2_3k0ih")
+theme_override_font_sizes/font_size = 30
+text = "Increase Speed"
+
+[node name="Label2" type="Label" parent="boot"]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 28.0
+offset_right = 416.0
+offset_bottom = 52.0
+theme_override_colors/font_color = Color(0.188235, 0.407843, 0.313726, 1)
+theme_override_fonts/font = ExtResource("2_3k0ih")
+theme_override_font_sizes/font_size = 30
+text = "Increases player movement by 30%"
+
+[node name="Boot_button" type="Button" parent="boot"]
+layout_mode = 0
+offset_left = 507.0
+offset_top = 3.0
+offset_right = 555.0
+offset_bottom = 48.0
+theme = ExtResource("1_kqm5q")
+icon = ExtResource("6_psi1b")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="1" type="TextureRect" parent="boot"]
+layout_mode = 0
+offset_left = 428.0
+offset_top = 4.0
+offset_right = 468.0
+offset_bottom = 50.0
+texture = ExtResource("7_ul8wm")
+
+[node name="2" type="TextureRect" parent="boot"]
+layout_mode = 0
+offset_left = 449.0
+offset_top = 4.0
+offset_right = 489.0
+offset_bottom = 50.0
+texture = ExtResource("7_ul8wm")
+
+[node name="3" type="TextureRect" parent="boot"]
+layout_mode = 0
+offset_left = 470.0
+offset_top = 4.0
+offset_right = 510.0
+offset_bottom = 50.0
+texture = ExtResource("7_ul8wm")
+
+[node name="Label3" type="Label" parent="boot"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 57.0
+offset_right = 41.0
+offset_bottom = 80.0
+theme_override_colors/font_color = Color(0.188235, 0.407843, 0.313726, 1)
+theme_override_fonts/font = ExtResource("2_3k0ih")
+theme_override_font_sizes/font_size = 30
+text = "Wood:4 Stone:4"
+
+[node name="food" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 60.0
+offset_top = 287.0
+offset_right = 112.0
+offset_bottom = 341.0
+mouse_filter = 2
+texture = ExtResource("8_rclan")
+
+[node name="Label" type="Label" parent="food"]
+layout_mode = 0
+offset_left = 64.0
+offset_right = 240.0
+offset_bottom = 24.0
+theme_override_colors/font_color = Color(0.188235, 0.407843, 0.313726, 1)
+theme_override_fonts/font = ExtResource("2_3k0ih")
+theme_override_font_sizes/font_size = 30
+text = "Decrease Hunger "
+
+[node name="Label2" type="Label" parent="food"]
+layout_mode = 0
+offset_left = 63.0
+offset_top = 28.0
+offset_right = 382.0
+offset_bottom = 52.0
+theme_override_colors/font_color = Color(0.188235, 0.407843, 0.313726, 1)
+theme_override_fonts/font = ExtResource("2_3k0ih")
+theme_override_font_sizes/font_size = 30
+text = "Decrease player hunger by 10%"
+
+[node name="Food_button" type="Button" parent="food"]
+layout_mode = 0
+offset_left = 507.0
+offset_top = 3.0
+offset_right = 555.0
+offset_bottom = 48.0
+theme = ExtResource("1_kqm5q")
+icon = ExtResource("6_psi1b")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="1" type="TextureRect" parent="food"]
+layout_mode = 0
+offset_left = 428.0
+offset_top = 4.0
+offset_right = 468.0
+offset_bottom = 50.0
+texture = ExtResource("7_ul8wm")
+
+[node name="2" type="TextureRect" parent="food"]
+layout_mode = 0
+offset_left = 449.0
+offset_top = 4.0
+offset_right = 489.0
+offset_bottom = 50.0
+texture = ExtResource("7_ul8wm")
+
+[node name="3" type="TextureRect" parent="food"]
+layout_mode = 0
+offset_left = 470.0
+offset_top = 4.0
+offset_right = 510.0
+offset_bottom = 50.0
+texture = ExtResource("7_ul8wm")
+
+[node name="Label3" type="Label" parent="food"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 57.0
+offset_right = 41.0
+offset_bottom = 80.0
+theme_override_colors/font_color = Color(0.188235, 0.407843, 0.313726, 1)
+theme_override_fonts/font = ExtResource("2_3k0ih")
+theme_override_font_sizes/font_size = 30
+text = "Wood:4 Stone:2"
+
+[node name="capacity" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 60.0
+offset_top = 386.0
+offset_right = 112.0
+offset_bottom = 440.0
+mouse_filter = 2
+texture = ExtResource("9_w3ilc")
+
+[node name="Label" type="Label" parent="capacity"]
+layout_mode = 0
+offset_left = 63.0
+offset_right = 349.0
+offset_bottom = 24.0
+theme_override_colors/font_color = Color(0.188235, 0.407843, 0.313726, 1)
+theme_override_fonts/font = ExtResource("2_3k0ih")
+theme_override_font_sizes/font_size = 30
+text = "Increase Carrying Capacity"
+
+[node name="Label2" type="Label" parent="capacity"]
+layout_mode = 0
+offset_left = 62.0
+offset_top = 28.0
+offset_right = 438.0
+offset_bottom = 52.0
+theme_override_colors/font_color = Color(0.188235, 0.407843, 0.313726, 1)
+theme_override_fonts/font = ExtResource("2_3k0ih")
+theme_override_font_sizes/font_size = 30
+text = "Increase capacity by 1 Bag"
+autowrap_mode = 1
+justification_flags = 171
+
+[node name="Capacity_button" type="Button" parent="capacity"]
+layout_mode = 0
+offset_left = 507.0
+offset_top = 3.0
+offset_right = 555.0
+offset_bottom = 48.0
+theme = ExtResource("1_kqm5q")
+icon = ExtResource("6_psi1b")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="1" type="TextureRect" parent="capacity"]
+layout_mode = 0
+offset_left = 428.0
+offset_top = 4.0
+offset_right = 468.0
+offset_bottom = 50.0
+texture = ExtResource("7_ul8wm")
+
+[node name="2" type="TextureRect" parent="capacity"]
+layout_mode = 0
+offset_left = 449.0
+offset_top = 4.0
+offset_right = 489.0
+offset_bottom = 50.0
+texture = ExtResource("7_ul8wm")
+
+[node name="3" type="TextureRect" parent="capacity"]
+layout_mode = 0
+offset_left = 470.0
+offset_top = 4.0
+offset_right = 510.0
+offset_bottom = 50.0
+texture = ExtResource("7_ul8wm")
+
+[node name="Label3" type="Label" parent="capacity"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 57.0
+offset_right = 41.0
+offset_bottom = 80.0
+theme_override_colors/font_color = Color(0.188235, 0.407843, 0.313726, 1)
+theme_override_fonts/font = ExtResource("2_3k0ih")
+theme_override_font_sizes/font_size = 30
+text = "Wood:0 Stone:4"
+
+[node name="Divider" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 624.0
+offset_top = 120.0
+offset_right = 632.0
+offset_bottom = 504.0
+color = Color(0.188235, 0.407843, 0.313726, 1)
+
+[node name="Raft" type="Label" parent="."]
+layout_mode = 0
+offset_left = 663.0
+offset_top = 118.0
+offset_right = 834.0
+offset_bottom = 159.0
+theme_override_colors/font_color = Color(0.188235, 0.407843, 0.313726, 1)
+theme_override_fonts/font = ExtResource("2_3k0ih")
+theme_override_font_sizes/font_size = 50
+text = "Raft Building"
+
+[node name="RaftPlatform" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 663.0
+offset_top = 184.0
+offset_right = 715.0
+offset_bottom = 238.0
+mouse_filter = 2
+texture = ExtResource("10_7tgpy")
+
+[node name="Label" type="Label" parent="RaftPlatform"]
+layout_mode = 0
+offset_left = 64.0
+offset_right = 218.0
+offset_bottom = 24.0
+theme_override_colors/font_color = Color(0.188235, 0.407843, 0.313726, 1)
+theme_override_fonts/font = ExtResource("2_3k0ih")
+theme_override_font_sizes/font_size = 30
+text = "Raft Platform"
+
+[node name="Platform_button" type="Button" parent="RaftPlatform"]
+layout_mode = 0
+offset_left = 256.0
+offset_right = 304.0
+offset_bottom = 45.0
+theme = ExtResource("1_kqm5q")
+icon = ExtResource("12_yvr8f")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="Label3" type="Label" parent="RaftPlatform"]
+layout_mode = 0
+offset_left = 65.0
+offset_top = 31.0
+offset_right = 230.0
+offset_bottom = 55.0
+theme_override_colors/font_color = Color(0.188235, 0.407843, 0.313726, 1)
+theme_override_fonts/font = ExtResource("2_3k0ih")
+theme_override_font_sizes/font_size = 30
+text = "Wood:12 Stone:12"
+
+[node name="RaftSail" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 663.0
+offset_top = 280.0
+offset_right = 715.0
+offset_bottom = 334.0
+mouse_filter = 2
+texture = ExtResource("11_6ldvw")
+
+[node name="Label" type="Label" parent="RaftSail"]
+layout_mode = 0
+offset_left = 64.0
+offset_right = 218.0
+offset_bottom = 24.0
+theme_override_colors/font_color = Color(0.188235, 0.407843, 0.313726, 1)
+theme_override_fonts/font = ExtResource("2_3k0ih")
+theme_override_font_sizes/font_size = 30
+text = "Raft Sail"
+
+[node name="Sail_button" type="Button" parent="RaftSail"]
+layout_mode = 0
+offset_left = 256.0
+offset_right = 304.0
+offset_bottom = 45.0
+theme = ExtResource("1_kqm5q")
+icon = ExtResource("12_yvr8f")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="Label3" type="Label" parent="RaftSail"]
+layout_mode = 0
+offset_left = 65.0
+offset_top = 31.0
+offset_right = 230.0
+offset_bottom = 55.0
+theme_override_colors/font_color = Color(0.188235, 0.407843, 0.313726, 1)
+theme_override_fonts/font = ExtResource("2_3k0ih")
+theme_override_font_sizes/font_size = 30
+text = "Wood:8 Stone:8"
+
+[node name="Raftsteering" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 663.0
+offset_top = 382.0
+offset_right = 715.0
+offset_bottom = 436.0
+mouse_filter = 2
+texture = ExtResource("12_n8ml3")
+
+[node name="Label" type="Label" parent="Raftsteering"]
+layout_mode = 0
+offset_left = 64.0
+offset_right = 218.0
+offset_bottom = 24.0
+theme_override_colors/font_color = Color(0.188235, 0.407843, 0.313726, 1)
+theme_override_fonts/font = ExtResource("2_3k0ih")
+theme_override_font_sizes/font_size = 30
+text = "Raft Paddling"
+
+[node name="Paddling_button" type="Button" parent="Raftsteering"]
+layout_mode = 0
+offset_left = 256.0
+offset_right = 304.0
+offset_bottom = 45.0
+theme = ExtResource("1_kqm5q")
+icon = ExtResource("12_yvr8f")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="Label3" type="Label" parent="Raftsteering"]
+layout_mode = 0
+offset_left = 65.0
+offset_top = 31.0
+offset_right = 230.0
+offset_bottom = 55.0
+theme_override_colors/font_color = Color(0.188235, 0.407843, 0.313726, 1)
+theme_override_fonts/font = ExtResource("2_3k0ih")
+theme_override_font_sizes/font_size = 30
+text = "Wood:16 Stone:4"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_eot35")
+bus = &"SFX"
+
+[connection signal="pressed" from="boot/Boot_button" to="." method="_on_boot_button_pressed"]
+[connection signal="pressed" from="food/Food_button" to="." method="_on_food_button_pressed"]
+[connection signal="pressed" from="capacity/Capacity_button" to="." method="_on_capacity_button_pressed"]
+[connection signal="pressed" from="RaftPlatform/Platform_button" to="." method="_on_platform_button_pressed"]
+[connection signal="pressed" from="RaftSail/Sail_button" to="." method="_on_sail_button_pressed"]
+[connection signal="pressed" from="Raftsteering/Paddling_button" to="." method="_on_paddling_button_pressed"]

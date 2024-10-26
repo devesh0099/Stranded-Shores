@@ -1,0 +1,484 @@
+[gd_scene load_steps=16 format=3 uid="uid://bflqcptcyuvxw"]
+
+[ext_resource type="Script" path="res://UI/challenge_techtree/challenge_tech_tree.gd" id="1_munbu"]
+[ext_resource type="FontFile" uid="uid://b37n7srhw4vak" path="res://UI/monogram-extended.ttf" id="2_2t0lc"]
+[ext_resource type="Texture2D" uid="uid://bs26x78jdcnop" path="res://asserts/ui/wood-icon.png" id="3_3n3x6"]
+[ext_resource type="Texture2D" uid="uid://b36nwbctxkok5" path="res://asserts/ui/stone.png" id="4_l8xnq"]
+[ext_resource type="Texture2D" uid="uid://bbvtvfhq8l5ix" path="res://asserts/ui/boot.png" id="5_d3qnk"]
+[ext_resource type="Theme" uid="uid://c6kofwqx8wa7h" path="res://UI/theme2.tres" id="6_337j8"]
+[ext_resource type="Texture2D" uid="uid://cstlbab45srgi" path="res://asserts/ui/arrow_up.png" id="7_iybhv"]
+[ext_resource type="Texture2D" uid="uid://5hyi808xxe2t" path="res://asserts/ui/point.png" id="8_8voec"]
+[ext_resource type="Texture2D" uid="uid://cyvafqbiocqqj" path="res://asserts/ui/food.png" id="9_jlh1a"]
+[ext_resource type="Texture2D" uid="uid://c8gggq1pvw2eh" path="res://asserts/ui/bag_full.png" id="10_un8l3"]
+[ext_resource type="Texture2D" uid="uid://c5wp5vqpydqya" path="res://asserts/ui/signal_platform.png" id="11_wvjp5"]
+[ext_resource type="Texture2D" uid="uid://7mu45yaf0w4w" path="res://asserts/ui/not_done.png" id="12_nsje5"]
+[ext_resource type="Texture2D" uid="uid://cct7u5rknu1ri" path="res://asserts/ui/flammable.png" id="13_mh5x5"]
+[ext_resource type="Texture2D" uid="uid://dqc6vwhj73y72" path="res://asserts/ui/trigger.png" id="14_qgtpe"]
+[ext_resource type="AudioStream" uid="uid://dryjj3m4526f8" path="res://asserts/sfx/powerup.wav" id="15_86liv"]
+
+[node name="Challenge_tech_tree" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_munbu")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.878431, 0.972549, 0.811765, 1)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.425781
+anchor_right = 0.574219
+anchor_bottom = 0.0632716
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.188235, 0.407843, 0.313726, 1)
+theme_override_fonts/font = ExtResource("2_2t0lc")
+theme_override_font_sizes/font_size = 50
+text = "Advancements
+"
+metadata/_edit_use_anchors_ = true
+
+[node name="wood" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 19.0
+offset_right = 96.0
+offset_bottom = 59.0
+texture = ExtResource("3_3n3x6")
+
+[node name="Label" type="Label" parent="wood"]
+layout_mode = 0
+offset_left = 49.0
+offset_top = 9.0
+offset_right = 89.0
+offset_bottom = 32.0
+theme_override_colors/font_color = Color(0.188235, 0.407843, 0.313726, 1)
+theme_override_fonts/font = ExtResource("2_2t0lc")
+theme_override_font_sizes/font_size = 30
+
+[node name="stone" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 66.0
+offset_right = 96.0
+offset_bottom = 106.0
+texture = ExtResource("4_l8xnq")
+
+[node name="Label" type="Label" parent="stone"]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 11.0
+offset_right = 90.0
+offset_bottom = 34.0
+theme_override_colors/font_color = Color(0.188235, 0.407843, 0.313726, 1)
+theme_override_fonts/font = ExtResource("2_2t0lc")
+theme_override_font_sizes/font_size = 30
+
+[node name="powerups" type="Label" parent="."]
+layout_mode = 0
+offset_left = 59.0
+offset_top = 118.0
+offset_right = 230.0
+offset_bottom = 159.0
+theme_override_colors/font_color = Color(0.188235, 0.407843, 0.313726, 1)
+theme_override_fonts/font = ExtResource("2_2t0lc")
+theme_override_font_sizes/font_size = 50
+text = "Power Up"
+
+[node name="boot" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 60.0
+offset_top = 186.0
+offset_right = 112.0
+offset_bottom = 240.0
+mouse_filter = 2
+texture = ExtResource("5_d3qnk")
+
+[node name="Label" type="Label" parent="boot"]
+layout_mode = 0
+offset_left = 64.0
+offset_right = 218.0
+offset_bottom = 24.0
+theme_override_colors/font_color = Color(0.188235, 0.407843, 0.313726, 1)
+theme_override_fonts/font = ExtResource("2_2t0lc")
+theme_override_font_sizes/font_size = 30
+text = "Increase Speed"
+
+[node name="Label2" type="Label" parent="boot"]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 28.0
+offset_right = 416.0
+offset_bottom = 52.0
+theme_override_colors/font_color = Color(0.188235, 0.407843, 0.313726, 1)
+theme_override_fonts/font = ExtResource("2_2t0lc")
+theme_override_font_sizes/font_size = 30
+text = "Increases player movement by 30%"
+
+[node name="Boot_button" type="Button" parent="boot"]
+layout_mode = 0
+offset_left = 507.0
+offset_top = 3.0
+offset_right = 555.0
+offset_bottom = 48.0
+theme = ExtResource("6_337j8")
+icon = ExtResource("7_iybhv")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="1" type="TextureRect" parent="boot"]
+layout_mode = 0
+offset_left = 428.0
+offset_top = 4.0
+offset_right = 468.0
+offset_bottom = 50.0
+texture = ExtResource("8_8voec")
+
+[node name="2" type="TextureRect" parent="boot"]
+layout_mode = 0
+offset_left = 449.0
+offset_top = 4.0
+offset_right = 489.0
+offset_bottom = 50.0
+texture = ExtResource("8_8voec")
+
+[node name="3" type="TextureRect" parent="boot"]
+layout_mode = 0
+offset_left = 470.0
+offset_top = 4.0
+offset_right = 510.0
+offset_bottom = 50.0
+texture = ExtResource("8_8voec")
+
+[node name="Label3" type="Label" parent="boot"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 57.0
+offset_right = 41.0
+offset_bottom = 80.0
+theme_override_colors/font_color = Color(0.188235, 0.407843, 0.313726, 1)
+theme_override_fonts/font = ExtResource("2_2t0lc")
+theme_override_font_sizes/font_size = 30
+text = "Wood:4 Stone:2"
+
+[node name="food" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 60.0
+offset_top = 287.0
+offset_right = 112.0
+offset_bottom = 341.0
+mouse_filter = 2
+texture = ExtResource("9_jlh1a")
+
+[node name="Label" type="Label" parent="food"]
+layout_mode = 0
+offset_left = 64.0
+offset_right = 240.0
+offset_bottom = 24.0
+theme_override_colors/font_color = Color(0.188235, 0.407843, 0.313726, 1)
+theme_override_fonts/font = ExtResource("2_2t0lc")
+theme_override_font_sizes/font_size = 30
+text = "Decrease Hunger "
+
+[node name="Label2" type="Label" parent="food"]
+layout_mode = 0
+offset_left = 63.0
+offset_top = 28.0
+offset_right = 382.0
+offset_bottom = 52.0
+theme_override_colors/font_color = Color(0.188235, 0.407843, 0.313726, 1)
+theme_override_fonts/font = ExtResource("2_2t0lc")
+theme_override_font_sizes/font_size = 30
+text = "Decrease player hunger by 10%"
+
+[node name="Food_button" type="Button" parent="food"]
+layout_mode = 0
+offset_left = 507.0
+offset_top = 3.0
+offset_right = 555.0
+offset_bottom = 48.0
+theme = ExtResource("6_337j8")
+icon = ExtResource("7_iybhv")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="1" type="TextureRect" parent="food"]
+layout_mode = 0
+offset_left = 428.0
+offset_top = 4.0
+offset_right = 468.0
+offset_bottom = 50.0
+texture = ExtResource("8_8voec")
+
+[node name="2" type="TextureRect" parent="food"]
+layout_mode = 0
+offset_left = 449.0
+offset_top = 4.0
+offset_right = 489.0
+offset_bottom = 50.0
+texture = ExtResource("8_8voec")
+
+[node name="3" type="TextureRect" parent="food"]
+layout_mode = 0
+offset_left = 470.0
+offset_top = 4.0
+offset_right = 510.0
+offset_bottom = 50.0
+texture = ExtResource("8_8voec")
+
+[node name="Label3" type="Label" parent="food"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 57.0
+offset_right = 41.0
+offset_bottom = 80.0
+theme_override_colors/font_color = Color(0.188235, 0.407843, 0.313726, 1)
+theme_override_fonts/font = ExtResource("2_2t0lc")
+theme_override_font_sizes/font_size = 30
+text = "Wood:2 Stone:2"
+
+[node name="capacity" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 60.0
+offset_top = 386.0
+offset_right = 112.0
+offset_bottom = 440.0
+mouse_filter = 2
+texture = ExtResource("10_un8l3")
+
+[node name="Label" type="Label" parent="capacity"]
+layout_mode = 0
+offset_left = 63.0
+offset_right = 349.0
+offset_bottom = 24.0
+theme_override_colors/font_color = Color(0.188235, 0.407843, 0.313726, 1)
+theme_override_fonts/font = ExtResource("2_2t0lc")
+theme_override_font_sizes/font_size = 30
+text = "Increase Carrying Capacity"
+
+[node name="Label2" type="Label" parent="capacity"]
+layout_mode = 0
+offset_left = 62.0
+offset_top = 28.0
+offset_right = 438.0
+offset_bottom = 52.0
+theme_override_colors/font_color = Color(0.188235, 0.407843, 0.313726, 1)
+theme_override_fonts/font = ExtResource("2_2t0lc")
+theme_override_font_sizes/font_size = 30
+text = "Increase capacity by 1 Bag"
+autowrap_mode = 1
+justification_flags = 171
+
+[node name="Capacity_button" type="Button" parent="capacity"]
+layout_mode = 0
+offset_left = 507.0
+offset_top = 3.0
+offset_right = 555.0
+offset_bottom = 48.0
+theme = ExtResource("6_337j8")
+icon = ExtResource("7_iybhv")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="1" type="TextureRect" parent="capacity"]
+layout_mode = 0
+offset_left = 428.0
+offset_top = 4.0
+offset_right = 468.0
+offset_bottom = 50.0
+texture = ExtResource("8_8voec")
+
+[node name="2" type="TextureRect" parent="capacity"]
+layout_mode = 0
+offset_left = 449.0
+offset_top = 4.0
+offset_right = 489.0
+offset_bottom = 50.0
+texture = ExtResource("8_8voec")
+
+[node name="3" type="TextureRect" parent="capacity"]
+layout_mode = 0
+offset_left = 470.0
+offset_top = 4.0
+offset_right = 510.0
+offset_bottom = 50.0
+texture = ExtResource("8_8voec")
+
+[node name="Label3" type="Label" parent="capacity"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 57.0
+offset_right = 41.0
+offset_bottom = 80.0
+theme_override_colors/font_color = Color(0.188235, 0.407843, 0.313726, 1)
+theme_override_fonts/font = ExtResource("2_2t0lc")
+theme_override_font_sizes/font_size = 30
+text = "Wood:8 Stone:0"
+
+[node name="Divider" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 624.0
+offset_top = 120.0
+offset_right = 632.0
+offset_bottom = 504.0
+color = Color(0.188235, 0.407843, 0.313726, 1)
+
+[node name="Raft" type="Label" parent="."]
+layout_mode = 0
+offset_left = 663.0
+offset_top = 118.0
+offset_right = 834.0
+offset_bottom = 159.0
+theme_override_colors/font_color = Color(0.188235, 0.407843, 0.313726, 1)
+theme_override_fonts/font = ExtResource("2_2t0lc")
+theme_override_font_sizes/font_size = 50
+text = "Signal Building"
+
+[node name="SignalPlatform" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 663.0
+offset_top = 184.0
+offset_right = 715.0
+offset_bottom = 238.0
+mouse_filter = 2
+texture = ExtResource("11_wvjp5")
+
+[node name="Label" type="Label" parent="SignalPlatform"]
+layout_mode = 0
+offset_left = 64.0
+offset_right = 218.0
+offset_bottom = 24.0
+theme_override_colors/font_color = Color(0.188235, 0.407843, 0.313726, 1)
+theme_override_fonts/font = ExtResource("2_2t0lc")
+theme_override_font_sizes/font_size = 30
+text = "Signal Platform"
+
+[node name="Platform_button" type="Button" parent="SignalPlatform"]
+layout_mode = 0
+offset_left = 256.0
+offset_right = 304.0
+offset_bottom = 45.0
+theme = ExtResource("6_337j8")
+icon = ExtResource("12_nsje5")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="Label3" type="Label" parent="SignalPlatform"]
+layout_mode = 0
+offset_left = 65.0
+offset_top = 31.0
+offset_right = 230.0
+offset_bottom = 55.0
+theme_override_colors/font_color = Color(0.188235, 0.407843, 0.313726, 1)
+theme_override_fonts/font = ExtResource("2_2t0lc")
+theme_override_font_sizes/font_size = 30
+text = "Wood:?? Stone:??"
+
+[node name="FlammableMaterial" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 663.0
+offset_top = 280.0
+offset_right = 715.0
+offset_bottom = 334.0
+mouse_filter = 2
+texture = ExtResource("13_mh5x5")
+
+[node name="Label" type="Label" parent="FlammableMaterial"]
+layout_mode = 0
+offset_left = 58.0
+offset_right = 256.0
+offset_bottom = 24.0
+theme_override_colors/font_color = Color(0.188235, 0.407843, 0.313726, 1)
+theme_override_fonts/font = ExtResource("2_2t0lc")
+theme_override_font_sizes/font_size = 30
+text = "Flammable Material
+"
+
+[node name="Sail_button" type="Button" parent="FlammableMaterial"]
+layout_mode = 0
+offset_left = 256.0
+offset_right = 304.0
+offset_bottom = 45.0
+theme = ExtResource("6_337j8")
+icon = ExtResource("12_nsje5")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="Label3" type="Label" parent="FlammableMaterial"]
+layout_mode = 0
+offset_left = 65.0
+offset_top = 31.0
+offset_right = 230.0
+offset_bottom = 55.0
+theme_override_colors/font_color = Color(0.188235, 0.407843, 0.313726, 1)
+theme_override_fonts/font = ExtResource("2_2t0lc")
+theme_override_font_sizes/font_size = 30
+text = "Wood:?? Stone:??"
+
+[node name="Trigger" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 663.0
+offset_top = 382.0
+offset_right = 715.0
+offset_bottom = 436.0
+mouse_filter = 2
+texture = ExtResource("14_qgtpe")
+
+[node name="Label" type="Label" parent="Trigger"]
+layout_mode = 0
+offset_left = 64.0
+offset_right = 218.0
+offset_bottom = 24.0
+theme_override_colors/font_color = Color(0.188235, 0.407843, 0.313726, 1)
+theme_override_fonts/font = ExtResource("2_2t0lc")
+theme_override_font_sizes/font_size = 30
+text = "Trigger
+"
+
+[node name="Paddling_button" type="Button" parent="Trigger"]
+layout_mode = 0
+offset_left = 256.0
+offset_right = 304.0
+offset_bottom = 45.0
+theme = ExtResource("6_337j8")
+icon = ExtResource("12_nsje5")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="Label3" type="Label" parent="Trigger"]
+layout_mode = 0
+offset_left = 65.0
+offset_top = 31.0
+offset_right = 230.0
+offset_bottom = 55.0
+theme_override_colors/font_color = Color(0.188235, 0.407843, 0.313726, 1)
+theme_override_fonts/font = ExtResource("2_2t0lc")
+theme_override_font_sizes/font_size = 30
+text = "Wood:?? Stone:??"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_86liv")
+bus = &"SFX"
+
+[connection signal="pressed" from="boot/Boot_button" to="." method="_on_boot_button_pressed"]
+[connection signal="pressed" from="food/Food_button" to="." method="_on_food_button_pressed"]
+[connection signal="pressed" from="capacity/Capacity_button" to="." method="_on_capacity_button_pressed"]
+[connection signal="pressed" from="SignalPlatform/Platform_button" to="." method="_on_platform_button_pressed"]
+[connection signal="pressed" from="FlammableMaterial/Sail_button" to="." method="_on_sail_button_pressed"]
+[connection signal="pressed" from="Trigger/Paddling_button" to="." method="_on_paddling_button_pressed"]

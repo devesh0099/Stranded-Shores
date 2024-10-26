@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://dyxqy2t4x3w6b"]
+
+[ext_resource type="Texture2D" uid="uid://crvjcfk1sd3ks" path="res://icon.svg" id="1_dmmp2"]
+[ext_resource type="PackedScene" uid="uid://c4ofyoknjvbkt" path="res://player/player.tscn" id="2_nyx01"]
+[ext_resource type="PackedScene" uid="uid://jgh86sdhqol6" path="res://player/ship.tscn" id="2_u8bqq"]
+
+[node name="Node2D" type="Node2D"]
+position = Vector2(40, -10)
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(66, 23)
+texture = ExtResource("1_dmmp2")
+
+[node name="Player" parent="." instance=ExtResource("2_nyx01")]
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("2_u8bqq")]
+position = Vector2(-22, 16)

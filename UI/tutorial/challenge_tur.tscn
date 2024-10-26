@@ -1,0 +1,99 @@
+[gd_scene load_steps=6 format=3 uid="uid://mi1c6us28skb"]
+
+[ext_resource type="Script" path="res://UI/tutorial/challenge_tur.gd" id="1_a6xh7"]
+[ext_resource type="FontFile" uid="uid://b37n7srhw4vak" path="res://UI/monogram-extended.ttf" id="2_aemr0"]
+[ext_resource type="Theme" uid="uid://c6kofwqx8wa7h" path="res://UI/theme2.tres" id="14_52re4"]
+[ext_resource type="AudioStream" uid="uid://ce4h50g7a6qd7" path="res://asserts/sfx/click4.ogg" id="15_0541r"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_v5yft"]
+line_spacing = 0.0
+font = ExtResource("2_aemr0")
+font_size = 29
+font_color = Color(0.188235, 0.407843, 0.313726, 1)
+
+[node name="Challenge_tur" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_a6xh7")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.878431, 0.972549, 0.811765, 1)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -144.0
+offset_top = 90.0
+offset_right = 122.0
+offset_bottom = 131.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.188235, 0.407843, 0.313726, 1)
+theme_override_fonts/font = ExtResource("2_aemr0")
+theme_override_font_sizes/font_size = 50
+text = "Challenge Mode"
+
+[node name="Label10" type="Label" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -512.0
+offset_top = -190.0
+offset_right = 531.0
+offset_bottom = 222.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.188235, 0.407843, 0.313726, 1)
+theme_override_fonts/font = ExtResource("2_aemr0")
+theme_override_font_sizes/font_size = 30
+text = "Your raft didn't make it, breaking apart and leaving you stranded once again.
+
+This new island seems even more challenging - resources are fewer and farther between. Frustration takes over, and you find yourself tearing pages from your crafting guide.
+
+Just then, you spot a ship in the distance. There's no time to waste.
+
+You need to gather your scattered guide pages (Use right mouse click to drag camera around), collect what resources you can find, and craft a signal device - all while managing your growing hunger. 
+But be careful: some areas of sand are deceptively dangerous, threatening to trap you and drain your energy.
+
+Can you piece together your lost knowledge, overcome the island's challenges, and signal for rescue before the ship sails out of reach?"
+label_settings = SubResource("LabelSettings_v5yft")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 497.0
+offset_top = 567.0
+offset_right = 615.0
+offset_bottom = 616.0
+theme = ExtResource("14_52re4")
+text = "Continue"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_0541r")
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 402.0
+offset_top = 130.0
+offset_right = 718.0
+offset_bottom = 138.0
+color = Color(0.188235, 0.407843, 0.313726, 1)
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

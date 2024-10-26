@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=3 uid="uid://brl2fp3spta08"]
+
+[ext_resource type="Script" path="res://UI/timer/timer.gd" id="1_vlyuj"]
+[ext_resource type="Texture2D" uid="uid://c0qib7dayy7wj" path="res://asserts/ui/clock.png" id="2_ulshe"]
+[ext_resource type="FontFile" uid="uid://b37n7srhw4vak" path="res://UI/monogram-extended.ttf" id="3_1c2o6"]
+[ext_resource type="AudioStream" uid="uid://bqoxtya0uupjg" path="res://asserts/sfx/clock_ticking.mp3" id="4_i1dfu"]
+
+[node name="Timer" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vlyuj")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 151.0
+one_shot = true
+autostart = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(527, 19)
+scale = Vector2(4.75, 4.75)
+texture = ExtResource("2_ulshe")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 552.0
+offset_top = -1.0
+offset_right = 612.0
+offset_bottom = 31.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_1c2o6")
+theme_override_font_sizes/font_size = 40
+text = "2:30"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_i1dfu")
+autoplay = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

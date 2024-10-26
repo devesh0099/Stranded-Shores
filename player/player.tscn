@@ -1,0 +1,117 @@
+[gd_scene load_steps=19 format=3 uid="uid://c4ofyoknjvbkt"]
+
+[ext_resource type="Script" path="res://player/player.gd" id="1_xa1hj"]
+[ext_resource type="Texture2D" uid="uid://bkoow3ruxrlfu" path="res://asserts/player/player.png" id="2_l82ou"]
+[ext_resource type="Texture2D" uid="uid://ck3f3m22q0m3d" path="res://asserts/button/E-Key.png" id="3_nl1pd"]
+[ext_resource type="PackedScene" uid="uid://b58tmpthrjt7s" path="res://Level/camera_2d.tscn" id="4_nw2cv"]
+[ext_resource type="AudioStream" uid="uid://dpjunfhorduiv" path="res://asserts/sfx/tree_down.mp3" id="5_0gupy"]
+[ext_resource type="AudioStream" uid="uid://0oc6t4dew6gq" path="res://asserts/sfx/hunger.mp3" id="6_es5wo"]
+[ext_resource type="AudioStream" uid="uid://dg5kkc3nkjipt" path="res://asserts/sfx/mountain.mp3" id="7_eg75c"]
+[ext_resource type="AudioStream" uid="uid://digj2be4vgmdr" path="res://asserts/sfx/transfer.wav" id="8_tyybc"]
+[ext_resource type="AudioStream" uid="uid://yb34wraniib" path="res://asserts/sfx/opening.mp3" id="9_6d6iv"]
+[ext_resource type="AudioStream" uid="uid://baul80x0w" path="res://asserts/sfx/clear.wav" id="10_sykit"]
+[ext_resource type="AudioStream" uid="uid://cyd8idee6rfur" path="res://asserts/sfx/hurt_sand.wav" id="11_j8nc4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fvl6c"]
+atlas = ExtResource("2_l82ou")
+region = Rect2(0, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jb53s"]
+atlas = ExtResource("2_l82ou")
+region = Rect2(8, 0, 8, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rfoyb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fvl6c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jb53s")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cxjeo"]
+radius = 3.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yjnrq"]
+atlas = ExtResource("3_nl1pd")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6vavw"]
+atlas = ExtResource("3_nl1pd")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ont1i"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yjnrq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6vavw")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Player" type="CharacterBody2D" groups=["player"]]
+script = ExtResource("1_xa1hj")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_rfoyb")
+animation = &"walk"
+frame_progress = 0.144527
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_cxjeo")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(8, 0)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 10.0
+autostart = true
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(8, -6)
+scale = Vector2(0.25, 0.25)
+sprite_frames = SubResource("SpriteFrames_ont1i")
+autoplay = "default"
+frame_progress = 0.467223
+
+[node name="Camera2D" parent="." instance=ExtResource("4_nw2cv")]
+
+[node name="tree" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_0gupy")
+autoplay = true
+bus = &"SFX"
+
+[node name="hunger" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_es5wo")
+bus = &"SFX"
+
+[node name="mountain" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_eg75c")
+bus = &"SFX"
+
+[node name="transfer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_tyybc")
+
+[node name="open" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_6d6iv")
+
+[node name="Clear" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_sykit")
+
+[node name="hurt" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_j8nc4")
+volume_db = 10.0
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

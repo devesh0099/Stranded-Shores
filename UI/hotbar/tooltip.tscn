@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://b4rc1so317g4m"]
+
+[ext_resource type="Theme" uid="uid://c6kofwqx8wa7h" path="res://UI/theme2.tres" id="1_qmk3a"]
+
+[node name="Label" type="Label"]
+anchors_preset = -1
+anchor_right = 0.0347222
+anchor_bottom = 0.037037
+offset_bottom = -1.0
+theme = ExtResource("1_qmk3a")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
